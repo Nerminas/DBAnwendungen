@@ -1,0 +1,18 @@
+<!--<?xml version='1.0' encoding='utf-8'?>-->
+<!--<!DOCTYPE hibernate-configuration PUBLIC-->
+        <!--"-//Hibernate/Hibernate Configuration DTD//EN"-->
+        <!--"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">-->
+<!--<hibernate-configuration>-->
+    <!--<session-factory>-->
+        <!--<property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>-->
+        <!--<property name="connection.url">jdbc:postgresql://192.168.1.199:5432/postgres</property>-->
+        <!--<property name="connection.driver_class">org.postgresql.Driver</property>-->
+        <!--<property name="connection.username">postgres</property>-->
+        <!--<property name="connection.password">server0815</property>-->
+        <!--<property name="transaction.auto_close_session">true</property>-->
+        <!--&lt;!&ndash;<property name="hbm2ddl.auto">update</property>&ndash;&gt;-->
+        <!--<mapping class="at.fhj.swd.postgres.ProductsEntity"/>-->
+        <!--<mapping class="at.fhj.swd.postgres.StorageEntity"/>-->
+        <!--<mapping resource="META-INF/persistence.xml"/>-->
+    <!--</session-factory>-->
+<!--</hibernate-configuration>-->
