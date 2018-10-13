@@ -1,5 +1,7 @@
 // Schadler, Reindl, Klug
 
+package at.fhj.swd.postgres;
+
 import at.fhj.swd.postgres.ProductsEntity;
 
 import javax.persistence.EntityManager;
