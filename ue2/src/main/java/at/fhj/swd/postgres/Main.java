@@ -67,7 +67,7 @@ public class Main {
         for (int i = 0; i <= 10; i++) {
 
             transaction.begin();
-            ProductsEntity testProduct = new ProductsEntity(i, "Product " + i);
+            ProductsEntity testProduct = new ProductsEntity("Product " + i, ProductBarcode.EAN128);
 //            testProduct.setId(i);
 //            testProduct.setName("Product" + i);
             assertNotNull(testProduct);

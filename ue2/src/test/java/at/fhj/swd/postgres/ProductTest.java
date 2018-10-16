@@ -51,9 +51,7 @@ public class ProductTest {
     @Test
     public void create() {
         transaction.begin();
-        ProductsEntity testProduct = new ProductsEntity(id, name);
-//        testProduct.setId(id);
-//        testProduct.setName(name);
+        ProductsEntity testProduct = new ProductsEntity(name, ProductBarcode.EAN128);
         assertNotNull(testProduct);
         manager.persist(testProduct);
         transaction.commit();
@@ -64,7 +62,7 @@ public class ProductTest {
 
     @Test
     public void modify() {
-        ProductsEntity testProduct = manager.find(ProductsEntity.class, id);
+        ProductsEntity testProduct = manager.find(ProductsEntity.class, 1);
         assertNotNull(testProduct);
         System.out.println("Found " + testProduct);
 
@@ -78,7 +76,7 @@ public class ProductTest {
         //setup    ();
         //#endif
 
-        testProduct = manager.find(ProductsEntity.class, id);
+        testProduct = manager.find(ProductsEntity.class, 1);
 
         assertEquals("Testprodukt-NEU", testProduct.getProductName());
         System.out.println("Updated " + testProduct);
@@ -86,14 +84,14 @@ public class ProductTest {
 
     @Test
     public void remove() {
-        ProductsEntity testProduct = manager.find(ProductsEntity.class, id);
+        ProductsEntity testProduct = manager.find(ProductsEntity.class, 1);
         assertNotNull(testProduct);
 
         transaction.begin();
         manager.remove(testProduct);
         transaction.commit();
 
-        testProduct = manager.find(ProductsEntity.class, id);
+        testProduct = manager.find(ProductsEntity.class, 1);
         assertNull(testProduct);
 
         System.out.println("Removed " + id);
