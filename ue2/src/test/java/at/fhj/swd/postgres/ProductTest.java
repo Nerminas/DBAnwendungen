@@ -1,4 +1,4 @@
-/*
+package at.fhj.swd.postgres;/*
  * project    company
  * subproject simplest
  */
@@ -12,13 +12,12 @@ import javax.persistence.Persistence;
 
 import static org.junit.Assert.*;
 
-import at.fhj.swd.postgres.ProductsEntity;
 import org.junit.BeforeClass;
 import org.junit.AfterClass;
 import org.junit.Test;
 
 @org.junit.FixMethodOrder(org.junit.runners.MethodSorters.NAME_ASCENDING)
-public class EmployeeTest {
+public class ProductTest {
 
     static EntityManagerFactory factory;
     static EntityManager manager;
@@ -70,7 +69,7 @@ public class EmployeeTest {
         System.out.println("Found " + testProduct);
 
         transaction.begin();
-        testProduct.setName("Testprodukt-NEU");
+        testProduct.setProductName("Testprodukt-NEU");
         transaction.commit();
 
         //#if STRICT
@@ -81,7 +80,7 @@ public class EmployeeTest {
 
         testProduct = manager.find(ProductsEntity.class, id);
 
-        assertEquals("Testprodukt-NEU", testProduct.getName());
+        assertEquals("Testprodukt-NEU", testProduct.getProductName());
         System.out.println("Updated " + testProduct);
     }
 

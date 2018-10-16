@@ -4,14 +4,14 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "products", schema = "public", catalog = "postgres")
+@Table(name = "products", schema = "ue02", catalog = "postgres")
 public class ProductsEntity {
     private int id;
-    private String name;
+    private String productName;
 
-    public ProductsEntity(int id, String name) {
+    public ProductsEntity(int id, String productName) {
         this.setId(id);
-        this.setName(name);
+        this.setProductName(productName);
     }
 
     @Id
@@ -26,12 +26,12 @@ public class ProductsEntity {
 
     @Basic
     @Column(name = "name", nullable = false, length = 100)
-    public String getName() {
-        return name;
+    public String getProductName() {
+        return productName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setProductName(String name) {
+        this.productName = name;
     }
 
     @Override
@@ -40,11 +40,11 @@ public class ProductsEntity {
         if (o == null || getClass() != o.getClass()) return false;
         ProductsEntity that = (ProductsEntity) o;
         return id == that.id &&
-                Objects.equals(name, that.name);
+                Objects.equals(productName, that.productName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name);
+        return Objects.hash(id, productName);
     }
 }
