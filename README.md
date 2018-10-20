@@ -2,9 +2,9 @@ Team Members: Christian Schadler, Michael Klug, David Reindl<br />
 
 <hr />
 
-#Datenbankanwendungen 
+# Datenbankanwendungen 
 
-#uebung 1 <br />
+# uebung 1 <br />
 Aufgabenstellung: <br />
 1. ER-Modell <br />
 2. Datenbank Tabellen anlegen <br />
@@ -17,7 +17,7 @@ Aufgabenstellung: <br />
 
 <hr />
 
-#uebung 2 <br />
+# uebung 2 <br />
 Aufgabenstellung: <br />
  1. ER-Modell <br />
  2. Datenbank Tabellen anlegen <br />
@@ -30,7 +30,7 @@ Aufgabenstellung: <br />
 
 <hr />
 
-#uebung 3 <br />
+# uebung 3 <br />
 Aufgabenstellung: <br />
  1. ER-Modell <br />
  2. Datenbank Tabellen anlegen <br />
@@ -43,7 +43,7 @@ Aufgabenstellung: <br />
 
 <hr />
 
-#uebung 4 <br />
+# uebung 4 <br />
 Aufgabenstellung: <br />
 1. ER-Modell <br />
 2. Datenbank Tabellen anlegen <br />
