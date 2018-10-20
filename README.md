@@ -1,5 +1,9 @@
 Team Members: Christian Schadler, Michael Klug, David Reindl<br />
 
+<hr />
+
+#Datenbankanwendungen 
+
 #uebung 1 <br />
 Aufgabenstellung: <br />
 1. ER-Modell <br />
@@ -9,7 +13,7 @@ Aufgabenstellung: <br />
 5. Test Setup <br />
 6. Test <br />
 
-![er_diagram_ue1](https://github.com/Nerminas/db_anwendungen/blob/master/ue1/src/relational.jpg =250px)
+<img src="https://github.com/Nerminas/db_anwendungen/blob/master/ue1/src/relational.jpg" height="auto" width="400" alt="er_diagram"/>
 
 <hr />
 
@@ -22,7 +26,7 @@ Aufgabenstellung: <br />
  5. Test Setup <br />
  6. Test <br />
  
-![er_diagram_ue2](https://github.com/Nerminas/db_anwendungen/blob/master/ue2/src/main/resources/er_diagram/er_ue2.png =250px)
+![er_diagram](https://github.com/Nerminas/db_anwendungen/blob/master/ue2/src/main/resources/er_diagram/er_ue2.png =250px)
 
 <hr />
 
@@ -35,7 +39,7 @@ Aufgabenstellung: <br />
  5. Test Setup <br />
  6. Test <br />
  
-![er_diagram_ue3](https://github.com/Nerminas/db_anwendungen/blob/master/ue3/src/main/resources/er_diagram/er_ue3.png =250px)
+![er_diagram](https://github.com/Nerminas/db_anwendungen/blob/master/ue3/src/main/resources/er_diagram/er_ue3.png =250px)
 
 <hr />
 
@@ -48,6 +52,6 @@ Aufgabenstellung: <br />
 5. Test Setup <br />
 6. Test <br />
 
-![er_diagram_ue4](https://github.com/Nerminas/db_anwendungen/blob/master/ue4/src/main/resources/er_diagram/er_ue4.png =250px)
+![er_diagram](https://github.com/Nerminas/db_anwendungen/blob/master/ue4/src/main/resources/er_diagram/er_ue4.png =250px)
 
 <hr />
