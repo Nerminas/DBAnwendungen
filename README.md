@@ -26,7 +26,7 @@ Aufgabenstellung: <br />
  5. Test Setup <br />
  6. Test <br />
  
-<img src="https://github.com/Nerminas/db_anwendungen/blob/master/ue2/src/main/resources/er_diagram/er_ue2.png" height="auto" width="400" alt="er_diagram_ue2"/>
+<img src="https://github.com/Nerminas/db_anwendungen/blob/master/ue2/src/main/resources/er_diagram/er_ue2.jpg" height="auto" width="400" alt="er_diagram_ue2"/>
 
 <hr />
 
@@ -39,7 +39,7 @@ Aufgabenstellung: <br />
  5. Test Setup <br />
  6. Test <br />
  
-<img src="https://github.com/Nerminas/db_anwendungen/blob/master/ue3/src/main/resources/er_diagram/er_ue3.png" height="auto" width="400" alt="er_diagram_ue3"/>
+<img src="https://github.com/Nerminas/db_anwendungen/blob/master/ue3/src/main/resources/er_diagram/er_ue3.jpg" height="auto" width="400" alt="er_diagram_ue3"/>
 
 <hr />
 
