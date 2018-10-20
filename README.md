@@ -13,7 +13,7 @@ Aufgabenstellung: <br />
 5. Test Setup <br />
 6. Test <br />
 
-<img src="https://github.com/Nerminas/db_anwendungen/blob/master/ue1/src/relational.jpg" height="auto" width="400" alt="er_diagram"/>
+<img src="https://github.com/Nerminas/db_anwendungen/blob/master/ue1/relational.jpg" height="auto" width="400" alt="er_diagram"/>
 
 <hr />
 
