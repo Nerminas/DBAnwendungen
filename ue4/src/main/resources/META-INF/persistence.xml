@@ -3,7 +3,8 @@
     <persistence-unit name="products" transaction-type="RESOURCE_LOCAL">
 
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <class>at.fhj.swd.postgres.ProductsEntity</class>
+        <class>at.fhj.swd.postgres.CityEntity</class>
+        <class>at.fhj.swd.postgres.SightEntity</class>
 
         <properties>
             <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
