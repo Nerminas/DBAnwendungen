@@ -17,7 +17,7 @@ import org.junit.AfterClass;
 import org.junit.Test;
 
 @org.junit.FixMethodOrder(org.junit.runners.MethodSorters.NAME_ASCENDING)
-public class ProductTest {
+public class ProductsEntityTest {
 
     static EntityManagerFactory factory;
     static EntityManager manager;
@@ -69,12 +69,6 @@ public class ProductTest {
         transaction.begin();
         testProduct.setProductName("Testprodukt-NEU");
         transaction.commit();
-
-        //#if STRICT
-        //start from scratch - this ensures that john is fetched from the DB :
-        //teardown ();
-        //setup    ();
-        //#endif
 
         testProduct = manager.find(ProductsEntity.class, 1);
 

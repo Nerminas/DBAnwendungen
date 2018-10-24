@@ -5,19 +5,22 @@ package at.fhj.swd.postgres;/*
 
 // Schadler, Reindl, Klug
 
+import org.junit.AfterClass;
+import org.junit.Assert;
+import org.junit.BeforeClass;
+import org.junit.Test;
+
+import static org.junit.Assert.*;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
-import static org.junit.Assert.*;
-
-import org.junit.BeforeClass;
-import org.junit.AfterClass;
-import org.junit.Test;
+import static org.junit.Assert.assertNotNull;
 
 @org.junit.FixMethodOrder(org.junit.runners.MethodSorters.NAME_ASCENDING)
-public class ProductsEntityTest {
+public class StorageEntityTest {
 
     static EntityManagerFactory factory;
     static EntityManager manager;
@@ -26,7 +29,7 @@ public class ProductsEntityTest {
     static final String persistenceUnitName = "products";
 
     static final int id = 158;
-    static final String name = "Testproduct";
+    static final String name = "Teststorage";
 
     @BeforeClass
     public static void setup() {
@@ -51,42 +54,44 @@ public class ProductsEntityTest {
     @Test
     public void create() {
         transaction.begin();
-        ProductsEntity testProduct = new ProductsEntity(name, ProductBarcode.EAN128);
-        assertNotNull(testProduct);
-        manager.persist(testProduct);
+        StorageEntity testStorage = new StorageEntity();
+        testStorage.setLocation(17);
+        testStorage.setAmount(100);
+        assertNotNull(testStorage);
+        manager.persist(testStorage);
         transaction.commit();
 
-        System.out.println("Created and Persisted " + testProduct);
+        System.out.println("Created and Persisted " + testStorage);
 
     }
 
     @Test
     public void modify() {
-        ProductsEntity testProduct = manager.find(ProductsEntity.class, 1);
-        assertNotNull(testProduct);
-        System.out.println("Found " + testProduct);
+        StorageEntity testStorage = manager.find(StorageEntity.class, 1);
+        assertNotNull(testStorage);
+        System.out.println("Found " + testStorage);
 
         transaction.begin();
-        testProduct.setProductName("Testprodukt-NEU");
+        testStorage.setLocation(1286);
         transaction.commit();
 
-        testProduct = manager.find(ProductsEntity.class, 1);
+        testStorage = manager.find(StorageEntity.class, 1);
 
-        assertEquals("Testprodukt-NEU", testProduct.getProductName());
-        System.out.println("Updated " + testProduct);
+        assertEquals(1286, testStorage.getLocation());
+        System.out.println("Updated " + testStorage);
     }
 
     @Test
     public void remove() {
-        ProductsEntity testProduct = manager.find(ProductsEntity.class, 1);
-        assertNotNull(testProduct);
+        StorageEntity testStorage = manager.find(StorageEntity.class, 1);
+        assertNotNull(testStorage);
 
         transaction.begin();
-        manager.remove(testProduct);
+        manager.remove(testStorage);
         transaction.commit();
 
-        testProduct = manager.find(ProductsEntity.class, 1);
-        assertNull(testProduct);
+        testStorage = manager.find(StorageEntity.class, 1);
+        assertNull(testStorage);
 
         System.out.println("Removed " + id);
     }

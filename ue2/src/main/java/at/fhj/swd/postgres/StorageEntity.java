@@ -10,7 +10,9 @@ public class StorageEntity {
     private Integer location;
     private Integer amount;
 
+    @SequenceGenerator(name = "EmployeeIdGenerator", sequenceName = "Employee_Sequence", allocationSize = 1)
     @Id
+    @GeneratedValue (generator="EmployeeIdGenerator")
     @Column(name = "id", nullable = false)
     public int getId() {
         return id;
@@ -22,7 +24,7 @@ public class StorageEntity {
 
     @Basic
     @Column(name = "location", nullable = true)
-    public Integer getLocation() {
+    public int getLocation() {
         return location;
     }
 
