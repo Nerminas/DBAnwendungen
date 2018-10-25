@@ -2,8 +2,6 @@
 
 package at.fhj.swd.postgres;
 
-import at.fhj.swd.postgres.ProductsEntity;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -50,35 +48,35 @@ public class Main {
 
 
 // SETUP
-        EntityManagerFactory factory;
-        EntityManager manager;
-        EntityTransaction transaction;
-
-        final String persistenceUnitName = "products";
-
-        factory = Persistence.createEntityManagerFactory(persistenceUnitName);
-        assertNotNull(factory);
-        manager = factory.createEntityManager();
-        assertNotNull(manager);
-
-        transaction = manager.getTransaction();
+//        EntityManagerFactory factory;
+//        EntityManager manager;
+//        EntityTransaction transaction;
+//
+//        final String persistenceUnitName = "products";
+//
+//        factory = Persistence.createEntityManagerFactory(persistenceUnitName);
+//        assertNotNull(factory);
+//        manager = factory.createEntityManager();
+//        assertNotNull(manager);
+//
+//        transaction = manager.getTransaction();
 
 // DO SOMETHING
-        for (int i = 0; i <= 10; i++) {
-
-            transaction.begin();
-            ProductsEntity testProduct = new ProductsEntity("Product " + i, ProductBarcode.EAN128);
+//        for (int i = 0; i <= 10; i++) {
+//
+//            transaction.begin();
+//            ProductsEntity testProduct = new ProductsEntity();
 //            testProduct.setId(i);
-//            testProduct.setName("Product" + i);
-            assertNotNull(testProduct);
-            manager.persist(testProduct);
-            transaction.commit();
+//            testProduct.setProductName("Product" + i);
+//            assertNotNull(testProduct);
+//            manager.persist(testProduct);
+//            transaction.commit();
+//
+//            System.out.println("Created and Persisted " + testProduct);
+//        }
 
-            System.out.println("Created and Persisted " + testProduct);
-        }
-
-// TEARDOWN
-        manager.close();
-        factory.close();
+//// TEARDOWN
+//        manager.close();
+//        factory.close();
     }
 }
