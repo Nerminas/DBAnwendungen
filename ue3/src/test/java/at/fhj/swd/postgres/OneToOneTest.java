@@ -47,6 +47,7 @@ public class OneToOneTest {
         BoyEntity boy = new BoyEntity();
         boy.setAge(22);
         boy.setName("Franz");
+        assertNotNull(boy);
         GirlEntity girl = new GirlEntity();
         girl.setAge(21);
         girl.setName("Sissy");
@@ -56,6 +57,8 @@ public class OneToOneTest {
         manager.persist(girl);
         transaction.commit();
         System.out.printf("Sucefully created boy and girl, now removing");
+
+        assertEquals(boy, girl.getRelation());
 
         transaction.begin();
         manager.remove(girl);
