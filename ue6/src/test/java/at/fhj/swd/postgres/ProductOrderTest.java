@@ -19,7 +19,7 @@ import org.junit.Test;
 import java.util.Collection;
 
 @org.junit.FixMethodOrder(org.junit.runners.MethodSorters.NAME_ASCENDING)
-public class ProductStorageTest {
+public class ProductOrderTest {
 
     static EntityManagerFactory factory;
     static EntityManager manager;
@@ -30,11 +30,13 @@ public class ProductStorageTest {
     static final String testProductName1 = "Testproduct1";
     static final String testProductName2 = "Testproduct2";
 
-    static final String testStorageType = "DEFAULT";
+    static final String testOrdernumber1 = "CustomerOrder1";
+    static final String testOrdernumber2 = "CustomerOrder2";
 
     static int testProduct1Id;
     static int testProduct2Id;
-    static int testStorageId;
+    static int testOrder1Id;
+    static int testOrder2Id;
 
 
     @BeforeClass
@@ -80,19 +82,24 @@ public class ProductStorageTest {
         System.out.println("Created and Persisted <" + testProduct1 + "> and <" + testProduct2 + ">");
 
 
-        // create storage
-        Storage testStorage = new Storage();
-        testStorage.setType(testStorageType);
+        // create orders
+        Order testOrder1 = new Order();
+        testOrder1.setOrdernumber(testOrdernumber1);
+        Order testOrder2 = new Order();
+        testOrder2.setOrdernumber(testOrdernumber2);
 
-        assertNotNull(testStorage);
+        assertNotNull(testOrder1);
+        assertNotNull(testOrder2);
 
-        manager.persist(testStorage);
+        manager.persist(testOrder1);
+        manager.persist(testOrder2);
 
         transaction.commit();
 
         testProduct1Id = testProduct1.getId();
         testProduct2Id = testProduct2.getId();
-        testStorageId = testStorage.getId();
+        testOrder1Id = testOrder1.getId();
+        testOrder2Id =testOrder2.getId();
     }
 
     @Test
@@ -108,24 +115,38 @@ public class ProductStorageTest {
         assertNotNull(testProduct2);
         System.out.println("Found " + testProduct2);
 
-        Storage testStorage = manager.find ( Storage.class, testStorageId);
-        assertNotNull(testStorage);
-        System.out.println("Found " + testStorage);
+        Order testOrder1 = manager.find ( Order.class, testOrder1Id);
+        assertNotNull(testOrder1);
+        System.out.println("Found " + testOrder1);
 
-        testProduct1.setStorage(testStorage);
-        testProduct2.setStorage(testStorage);
+        Order testOrder2 = manager.find ( Order.class, testOrder2Id);
+        assertNotNull(testOrder1);
+        System.out.println("Found " + testOrder2);
+
+        testProduct1.addOrder(testOrder1);
+        testProduct1.addOrder(testOrder2);
+        testOrder1.addProduct(testProduct1);
+        testOrder1.addProduct(testProduct2);
+        testProduct2.addOrder(testOrder1);
+        testProduct2.addOrder(testOrder2);
+        testOrder2.addProduct(testProduct1);
+        testOrder2.addProduct(testProduct2);
 
         transaction.commit();
 
-        assertEquals(testStorage, testProduct1.getStorage());
-        assertEquals(testStorage, testProduct2.getStorage());
+        assertTrue(testProduct1.getOrders().contains(testOrder1));
+        assertTrue(testProduct1.getOrders().contains(testOrder2));
+        assertTrue(testOrder1.getProducts().contains(testProduct1));
+        assertTrue(testOrder1.getProducts().contains(testProduct2));
+        assertTrue(testProduct2.getOrders().contains(testOrder1));
+        assertTrue(testProduct2.getOrders().contains(testOrder2));
+        assertTrue(testOrder2.getProducts().contains(testProduct1));
+        assertTrue(testOrder2.getProducts().contains(testProduct2));
 
-        assertEquals(2, testStorage.getProducts().size() );
-
-        Collection<Product> storageProducts = testStorage.getProducts();
-
-        assertTrue(storageProducts.contains(testProduct1));
-        assertTrue(storageProducts.contains(testProduct2));
+        assertEquals(2, testOrder1.getProducts().size() );
+        assertEquals(2, testOrder2.getProducts().size() );
+        assertEquals(2, testProduct1.getOrders().size() );
+        assertEquals(2, testProduct2.getOrders().size() );
     }
 
     @Test
@@ -137,18 +158,18 @@ public class ProductStorageTest {
         assertNotNull(testProduct1);
         System.out.println("Found " + testProduct1);
 
-        Storage testStorage = manager.find ( Storage.class, testStorageId);
-        assertNotNull(testStorage);
-        System.out.println("Found " + testStorage);
+        Order testOrder1 = manager.find ( Order.class, testOrder1Id);
+        assertNotNull(testOrder1);
+        System.out.println("Found " + testOrder1);
 
-        testProduct1.removeStorage(testStorage);
+        testProduct1.removeOrder(testOrder1);
 
         transaction.commit();
 
-        assertNull(testProduct1.getStorage());
+        assertNull(testProduct1.getOrders());
 
-        assertEquals(1, testStorage.getProducts().size() );
-        Collection<Product> storageProducts = testStorage.getProducts();
+        assertEquals(1, testOrder1.getProducts().size() );
+        Collection<Product> storageProducts = testOrder1.getProducts();
 
         assertFalse(storageProducts.contains(testProduct1));
     }

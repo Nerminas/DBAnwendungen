@@ -57,6 +57,11 @@ public class Product {
         this.orders = orders;
     }
 
+    public void addOrder(Order order)
+    {
+        this.orders.add(order);
+    }
+
     public void removeOrder(Order order) {
         if ( ! orders.contains(order))
             throw new IllegalStateException("Order " + order + " is not assigned!");

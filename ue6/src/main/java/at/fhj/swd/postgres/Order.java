@@ -12,7 +12,7 @@ public class Order {
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String type;
+    private String ordernumber;
 
     @ManyToMany
     private Collection<Product> products = new ArrayList<Product>();
@@ -22,13 +22,13 @@ public class Order {
     }
 
     @Basic
-    @Column(name = "type")
-    public String getType() {
-        return type;
+    @Column(name = "ordernumber")
+    public String getOrdernumber() {
+        return ordernumber;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setOrdernumber(String ordernumber) {
+        this.ordernumber = ordernumber;
     }
 
 
