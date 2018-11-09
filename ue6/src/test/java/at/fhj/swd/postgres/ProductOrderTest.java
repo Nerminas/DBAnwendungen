@@ -169,8 +169,8 @@ public class ProductOrderTest {
         assertNull(testProduct1.getOrders());
 
         assertEquals(1, testOrder1.getProducts().size() );
-        Collection<Product> storageProducts = testOrder1.getProducts();
+        Collection<Product> order1Products1 = testOrder1.getProducts();
 
-        assertFalse(storageProducts.contains(testProduct1));
+        assertFalse(order1Products1.contains(testProduct1));
     }
 }
