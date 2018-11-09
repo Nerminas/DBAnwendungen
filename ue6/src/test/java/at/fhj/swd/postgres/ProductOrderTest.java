@@ -162,15 +162,22 @@ public class ProductOrderTest {
         assertNotNull(testOrder1);
         System.out.println("Found " + testOrder1);
 
+        Order testOrder2 = manager.find ( Order.class, testOrder2Id);
+        assertNotNull(testOrder2);
+        System.out.println("Found " + testOrder2);
+
         testProduct1.removeOrder(testOrder1);
+        testProduct1.removeOrder(testOrder2);
 
         transaction.commit();
 
-        assertNull(testProduct1.getOrders());
+        assertEquals(0,testProduct1.getOrders().size());
+        assertEquals(2, testOrder1.getProducts().size() );
 
-        assertEquals(1, testOrder1.getProducts().size() );
-        Collection<Product> order1Products1 = testOrder1.getProducts();
+        Collection<Order> product1Orders = testProduct1.getOrders();
+        Collection<Product> order1Products = testOrder1.getProducts();
 
-        assertFalse(order1Products1.contains(testProduct1));
+        assertFalse(product1Orders.contains(testOrder1));
+        assertTrue(order1Products.contains(testProduct1));
     }
 }
