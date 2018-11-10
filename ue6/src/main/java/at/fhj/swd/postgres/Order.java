@@ -5,24 +5,30 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 @Entity
-@Table( schema = "ue06")
+@Table( schema = "ue06", name = "order")
 public class Order {
 
     @Id
-    @Column(name = "id")
+    @Column(name = "order_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String ordernumber;
 
     @ManyToMany
+    @JoinTable(
+        schema = "ue06",
+        name = "order_product",
+        joinColumns = { @JoinColumn(name = "order_id") },
+        inverseJoinColumns = { @JoinColumn(name = "product_id") }
+    )
     private Collection<Product> products = new ArrayList<Product>();
+
+    protected Order(){}
 
     public int getId() {
         return id;
     }
 
-    @Basic
-    @Column(name = "ordernumber")
     public String getOrdernumber() {
         return ordernumber;
     }
