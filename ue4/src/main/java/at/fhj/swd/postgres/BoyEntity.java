@@ -3,8 +3,8 @@ package at.fhj.swd.postgres;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "girl", schema = "ue03", catalog = "swd_ws18_13")
-public class GirlEntity {
+@Table(name = "boy", schema = "ue04", catalog = "swd_ws18_13")
+public class BoyEntity {
     private int id;
 
     @GeneratedValue
@@ -37,16 +37,5 @@ public class GirlEntity {
 
     public void setAge(Integer age) {
         this.age = age;
-    }
-
-    private BoyEntity relation;
-
-    @OneToOne
-    public BoyEntity getRelation() {
-        return relation;
-    }
-
-    public void setRelation(BoyEntity relation) {
-        this.relation = relation;
     }
 }

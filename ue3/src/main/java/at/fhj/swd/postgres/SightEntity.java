@@ -3,7 +3,7 @@ package at.fhj.swd.postgres;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "sight", schema = "ue04", catalog = "swd_ws18_13")
+@Table(name = "sight", schema = "ue03", catalog = "swd_ws18_13")
 public class SightEntity {
     private int id;
     private String name;

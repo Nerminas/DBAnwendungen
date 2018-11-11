@@ -3,7 +3,7 @@ package at.fhj.swd.postgres;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "city", schema = "ue04", catalog = "swd_ws18_13")
+@Table(name = "city", schema = "ue03", catalog = "swd_ws18_13")
 public class CityEntity {
     private int id;
     private String name;
